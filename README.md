@@ -6,7 +6,7 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 
 * Takes photos one by one with a + button.
 * Auto saves photos in full resolution into disk with unique ids.
-* Resamples taken image bitmaps into lower qualities for to preview them all in one screen.
+* Resamples taken image bitmaps into lower quality bitmaps to reduce memory consumption and preview them all in one screen.
 * User can scroll through previews and select any one of them for a larger preview.
 * Can delete saved photos. Deleted photos are removed from disk, large & small previews.
 * On Submit & Cancel, sends events to parent with photo uri list.
