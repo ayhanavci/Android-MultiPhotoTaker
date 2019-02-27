@@ -69,7 +69,7 @@ The images used in layout file are stock Android vectors. I didn't add them here
 
 Feel free to customise to your needs.
 
-MIT
+[MIT](https://opensource.org/licenses/MIT)
 
 ## Author
 
