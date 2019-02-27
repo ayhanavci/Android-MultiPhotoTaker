@@ -18,7 +18,7 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 
 The images used in layout file are stock Android vectors. I didn't add them here since it would be pointless. You may just use whatever icons you have.
 
-1. Add the layout & java files in project.
+1. Add the layout & java files in project. ([MultiplePhotoTakerFragment.java](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/MultiplePhotoTakerFragment.java) & [multiple_photo_taker_fragment.xml](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/multiple_photo_taker_fragment.xml))
 2. Add your own package name on top of the java file.
 3. Edit your AndroidManifest.xml for Camera & Storage permissions. Don't forget to add a FileProvider too. Check Android documentation on it.
 4. Load the fragment. Here is an example:
