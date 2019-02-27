@@ -25,13 +25,15 @@ The images used in layout file are stock Android vectors. I didn't add them here
 ```Java
   ArrayList<Uri> photo_files = new ArrayList<>();
   ...
-  ...
+  //You can fill photo_files with uri list to previously saved images. This is passed on "newInstance". 
+  //Below, same variable is also used to get submitted photos, which obviously you don't need to.
+  ...  
   MultiplePhotoTakerFragment multiplePhotoTakerFragment = MultiplePhotoTakerFragment.newInstance(photo_files);
   multiplePhotoTakerFragment.setUserActionEventsListener(new MultiplePhotoTakerFragment.IUserActionEvents() {
     @Override
     public void onSubmit(ArrayList<Uri> photo_file_paths) {
       //User clicked submit
-      photo_files = photo_file_paths; //Save photo uri list
+      photo_files = photo_file_paths; //Save submitted photo uri list.
     }
 
     @Override
