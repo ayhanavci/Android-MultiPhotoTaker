@@ -20,7 +20,8 @@ The images used in layout file are stock Android vectors. I didn't add them here
 
 1. Add the layout & java files in project.
 2. Add your own package name on top of the java file.
-3. Load the fragment. Here is an example:
+3. Edit your AndroidManifest.xml for Camera & Storage permissions. Don't forget to add a FileProvider too. Check Android documentation on it.
+4. Load the fragment. Here is an example:
 
 ```Java
   ArrayList<Uri> photo_files = new ArrayList<>();
