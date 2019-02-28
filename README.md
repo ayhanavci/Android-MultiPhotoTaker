@@ -13,7 +13,7 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 * On start, can load saved photos into previews using a uri list.
 * No external dependencies, just native android sdk.
 * Can simply be copy-pasted in any project.
-* The preview image buttons are added dynamically and as it is, there is no limit to it. (You may want to edit to code to limit according to your needs)
+* The preview image buttons are added dynamically and as it is, there is no limit to it. (You may want to edit the Java code to limit button creation according to your needs)
 
 ## Usage
 
