@@ -71,7 +71,7 @@ The images used in layout file are stock Android vectors. I didn't add them here
 
 ## Licence
 
-Feel free to customise to your needs.
+Feel free to customise according to your needs.
 
 [MIT](https://opensource.org/licenses/MIT)
 
