@@ -60,7 +60,7 @@ The images used in layout file are stock Android vectors. I didn't add them here
 3. Back to fragment screen. One photo taken
 <img src="https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/readme_img/3.png" height="500">
 
-4. User keeps taking photos.
+4. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
 
 * User can click the red trash icon on top right to delete the previewed photo.
 * Scroll left and right on the nested scroll with the small previews.
