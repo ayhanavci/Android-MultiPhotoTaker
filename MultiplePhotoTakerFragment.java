@@ -184,9 +184,7 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
         }
 
         dispatchTakePictureIntent(UUID.randomUUID().toString());
-    }
-
-    String mCurrentPhotoPath;
+    }    
 
     private File createImageFile(String image_file_name) throws IOException {
         File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -195,8 +193,7 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
                 ".jpg",  /* suffix */
                 storageDir      /* directory */
         );
-
-        mCurrentPhotoPath = image.getAbsolutePath();
+        
         return image;
     }
     private void dispatchTakePictureIntent(String image_file_name) {
