@@ -15,6 +15,29 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 * Can simply be copy-pasted in any project.
 * The preview image buttons are added dynamically and as it is, there is no limit to it. (You may want to edit the Java code to limit button creation according to your needs)
 
+## MultiplePhotoTakerFragment Class
+
+| Function | What it does  |
+| ---------- | -------------------- |
+| setUserActionEventsListener | The calling activity sets its event handler IUserActionEvents  |
+| onCreateView | Framework override. Sets up button event handlers and loads photos (if any) into previews  |
+| onRequestPermissionsResult | Framework override. Only called on first start, called after user allows camera usage. |
+| loadSavedButtons | If parent activity passed URI list, load them into previews. |
+| onClickCancel | User clicked Cancel. Notify the parent and press back |
+| onClickSubmit | User clicked Submit. Notify the parent with taken photo URI list and press back |
+| onClickDeletePhoto | User clicked red trash icon. Delete the photo and update variables & UI |
+| createNewPhotoButton | Adds a new camera+ button to right-most. Called after user takes a photo. |
+| onClickTakePhoto | User clicked camera+ button. Start camera intent |
+| dispatchTakePictureIntent | Start camera intent and save the taken photo into disk |
+| onActivityResult | Framework override. When the photo is successfully taken, update variables & UI. Called after camera intent succeeds. |
+| decodeSampledBitmapFromResource | This one resamples the taken photo, essentially shrinking it into less memory consuming bitmaps to be used in previews. |
+| calculateInSampleSize | Used by decodeSampledBitmapFromResource. Calculates what dimensions the shrinked photo should have without harming the ratio. |
+| onClickLoadPreview | User clicked one of the preview buttons. It is displayed on large preview |
+| requestCameraPermission |  Only called on the very first start. Asks user if usage of camera is allowed |
+| checkCameraPermission | Called each time app is started to check if the app has camera permissions. |
+| MultiplePhotoTakerFragment | Factory pattern for fragment creation as recommended by Google. |
+| onCreate | Framework override. Doesn't do much |
+
 ## Usage
 
 The images used in layout file are stock Android vectors. I didn't add them here since it would be pointless. You may just use whatever icons you have.
