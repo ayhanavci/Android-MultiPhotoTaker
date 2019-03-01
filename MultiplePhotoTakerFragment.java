@@ -100,8 +100,9 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getActivity(), "Camera Permission Granted", Toast.LENGTH_SHORT).show();
                 }
-                else
+                else {
                     Toast.makeText(getActivity(), "Camera Permission Denied", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
