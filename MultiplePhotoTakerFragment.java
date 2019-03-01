@@ -47,30 +47,25 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
     HashMap<ImageButton, Uri>  button_uri_pair = new HashMap<>();
     ArrayList<Uri> photo_file_paths = new ArrayList<>();
     Uri selected_uri = null;
-
     Button btn_camera_submit, btn_camera_cancel;
-
+    static final int REQUEST_TAKE_PHOTO = 1000;
+    static final int REQUEST_CAMERA_PERMISSION_CODE = 1001;    
     private MultiplePhotoTakerFragment.IUserActionEvents user_events_listener = null;
+    
     public interface IUserActionEvents {
         void onSubmit(ArrayList<Uri> photo_file_paths);
         void onCancel();
     }
     public void setUserActionEventsListener(MultiplePhotoTakerFragment.IUserActionEvents listener) {user_events_listener  = listener;}
 
-    static final int REQUEST_TAKE_PHOTO = 1000;
-    static final int REQUEST_CAMERA_PERMISSION_CODE = 1001;
-
     public MultiplePhotoTakerFragment() {
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         if (view == null) {
             view = inflater.inflate(R.layout.multiple_photo_taker_fragment, null);
-
             if (!checkCameraPermission())
                 requestCameraPermission();
 
@@ -87,12 +82,9 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
             btn_camera_cancel = view.findViewById(R.id.btn_camera_cancel);
             btn_camera_submit.setOnClickListener(v -> onClickSubmit(v));
             btn_camera_cancel.setOnClickListener(v -> onClickCancel(v));
-
-
         }
         return view;
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
@@ -116,7 +108,6 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
             new_button.setOnClickListener(v -> onClickLoadPreview(v));
         }
     }
-
     private void onClickCancel(View v) {
         if (user_events_listener != null)
             user_events_listener.onCancel();
@@ -137,7 +128,6 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
         if (getActivity() != null)
             getActivity().onBackPressed();
     }
-
     private void onClickDeletePhoto(View v) {
         if (selected_uri != null) {
             for (Map.Entry<ImageButton, Uri> entry : button_uri_pair.entrySet()) {
@@ -153,15 +143,12 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
                         ContentResolver content_resolver = getActivity().getContentResolver();
                         content_resolver.delete(value, null, null);
                     }
-
                     break;
                 }
             }
         }
     }
-
     ImageButton createNewPhotoButton() {
-
         ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.MarginLayoutParams.MATCH_PARENT, ViewGroup.MarginLayoutParams.MATCH_PARENT);
         layoutParams.leftMargin = 10;
         ImageButton new_button = new ImageButton(getContext());
@@ -177,16 +164,13 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
 
         return new_button;
     }
-
     private void onClickTakePhoto(View v) {
         if (!checkCameraPermission()) {
             requestCameraPermission();
             return;
         }
-
         dispatchTakePictureIntent(UUID.randomUUID().toString());
     }    
-
     private File createImageFile(String image_file_name) throws IOException {
         File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
@@ -194,7 +178,6 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
                 ".jpg",  /* suffix */
                 storageDir      /* directory */
         );
-        
         return image;
     }
     private void dispatchTakePictureIntent(String image_file_name) {
@@ -242,11 +225,8 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
                     break;
                 }
             }
-
         }
     }
-
-
     public Bitmap decodeSampledBitmapFromResource(Resources res, Uri uri, int reqWidth, int reqHeight) {
 
         try {
@@ -268,7 +248,6 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
         catch (FileNotFoundException e) {
             return null;
         }
-
     }
     public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
@@ -288,7 +267,6 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
                 in_sample_size *= 2;
             }
         }
-
         return in_sample_size;
     }
     private void onClickLoadPreview(View v) {
@@ -306,24 +284,18 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
             }
         }
     }
-
-
-
     private void requestCameraPermission() {
         ActivityCompat.requestPermissions(getActivity(), new String[] {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
         }, REQUEST_CAMERA_PERMISSION_CODE);
     }
-
     private boolean checkCameraPermission() {
         int write_external_storage_result = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int access_camera_result = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA);
         return write_external_storage_result == PackageManager.PERMISSION_GRANTED && access_camera_result == PackageManager.PERMISSION_GRANTED;
     }
-
     public static String ARG_PARAM_PHOTOFILES = "PHOTOFILES";
-
 
     public static MultiplePhotoTakerFragment newInstance(ArrayList<Uri> photo_file_paths) {
         MultiplePhotoTakerFragment fragment = new MultiplePhotoTakerFragment();
@@ -332,7 +304,6 @@ public class MultiplePhotoTakerFragment extends DialogFragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
