@@ -10,7 +10,7 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 * User can scroll through previews and select any one of them for a larger preview.
 * Can delete saved photos. Deleted photos are removed from disk, large & small previews.
 * On Submit & Cancel, sends events to parent with photo URI list.
-* On start, can load saved photos into previews using a URI list.
+* On start, can load saved photos into previews using URI list.
 * No external dependencies, just native android sdk.
 * Can simply be copy-pasted in any project.
 * The preview image buttons are added dynamically and as it is, there is no limit to it. (You may want to edit the Java code to limit button creation according to your needs)
