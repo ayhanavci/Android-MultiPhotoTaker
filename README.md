@@ -5,9 +5,9 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 ## Features
 
 * Takes photos one by one with a + button.
-* Auto saves photos in full resolution into disk with unique ids.
+* Auto saves photos in full resolution onto disk with unique ids.
 * Resamples taken image bitmaps into lower quality bitmaps to reduce memory consumption and preview them all in one screen.
-* User can scroll through previews and select any one of them for a larger preview.
+* Users can scroll through previews and select any one of them for a larger preview.
 * Can delete saved photos. Deleted photos are removed from disk, large & small previews.
 * On Submit & Cancel, sends events to parent with photo URI list.
 * On start, can load saved photos into previews using URI list.
@@ -28,7 +28,7 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 | onClickDeletePhoto | User clicked red trash icon. Delete the photo and update variables & UI |
 | createNewPhotoButton | Adds a new camera+ button to right-most. Called after user takes a photo. |
 | onClickTakePhoto | User clicked camera+ button. Start camera intent |
-| dispatchTakePictureIntent | Start camera intent and save the taken photo into disk |
+| dispatchTakePictureIntent | Start camera intent and save the taken photo onto disk |
 | onActivityResult | Framework override. When the photo is successfully taken, update variables & UI. Called after camera intent succeeds. |
 | decodeSampledBitmapFromResource | This one resamples the taken photo, essentially shrinking it into less memory consuming bitmaps to be used in previews. |
 | calculateInSampleSize | Used by decodeSampledBitmapFromResource. Calculates what dimensions the shrinked photo should have without harming the ratio. |
