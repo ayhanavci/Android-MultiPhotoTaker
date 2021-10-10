@@ -104,4 +104,4 @@ Ayhan AVCI 2019
 
 ayhanavci@gmail.com
 
-[lain.run](https://lain.run)
+[ayhanavci.xyz](https://ayhanavci.xyz)
